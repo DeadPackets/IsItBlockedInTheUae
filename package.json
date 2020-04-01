@@ -1,0 +1,27 @@
+{
+  "name": "isitblockedintheuae",
+  "version": "1.0.0",
+  "description": "A simple NodeJS app (and CLI app!) that let's users figure out if a website has been blocked in the UAE.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DeadPackets/IsItBlockedInTheUae.git"
+  },
+  "author": "DeadPackets",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/DeadPackets/IsItBlockedInTheUae/issues"
+  },
+  "homepage": "https://github.com/DeadPackets/IsItBlockedInTheUae#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cheerio": "^1.0.0-rc.3",
+    "express": "^4.17.1",
+    "express-handlebars": "^4.0.1",
+    "superagent": "^5.2.2",
+    "superagent-no-cache": "^0.1.1"
+  }
+}
