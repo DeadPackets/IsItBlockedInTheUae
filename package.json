@@ -23,5 +23,11 @@
     "express-handlebars": "^4.0.1",
     "superagent": "^5.2.2",
     "superagent-no-cache": "^0.1.1"
+  },
+  "devDependencies": {
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb-base": "^14.1.0",
+    "eslint-config-google": "^0.14.0",
+    "eslint-plugin-import": "^2.20.2"
   }
 }
