@@ -2,14 +2,18 @@
 const superagent = require('superagent');
 const cheerio = require('cheerio');
 const express = require('express');
+const morgan = require('morgan');
 const bodyParser = require('body-parser');
+const handlebars = require('express-handlebars');
 
 // Initialize express
 const app = express();
 app.use(bodyParser.urlencoded({ extended: false }));
+app.use(morgan('common'));
 
 // Initialize handlebars
-const handlebars = require('express-handlebars');
+app.set('view engine', 'handlebars');
+app.engine('handlebars', handlebars());
 
 
 /*
@@ -43,19 +47,21 @@ function isBlockedCheck(domain, cb) {
     });
 }
 
-app.set('view engine', 'handlebars');
-app.engine('handlebars', handlebars());
-
 app.get('/', (_req, res) => {
   res.render('index');
 });
 
 app.post('/', (req, res) => {
   // TODO: Check if the parameter is a valid domain and reject it if it's incorrect
-  console.log(req.body);
   if (req.body.domain) {
+    console.log(`A user has queried for ${req.body.domain}`);
     if (/^[a-zA-Z0-9][a-zA-Z0-9-]{1,61}[a-zA-Z0-9]\.[a-zA-Z]{2,}$/.test(req.body.domain)) {
       isBlockedCheck(req.body.domain, (didWork, isBlocked, category, err) => {
+        if (isBlocked) {
+          console.log(`${req.body.domain} is blocked under category "${category}"!`);
+        } else {
+          console.log(`${req.body.domain} is not blocked!`);
+        }
         res.render('index', {
           didWork, isBlocked, category, domain: req.body.domain, err,
         });
@@ -72,4 +78,4 @@ app.post('/', (req, res) => {
   }
 });
 
-app.listen('80');
+app.listen('8080');
