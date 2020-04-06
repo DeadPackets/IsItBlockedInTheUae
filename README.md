@@ -22,5 +22,5 @@ Inside of `cli.js` is a command line version of the project that takes a file co
 
 Run it like this:
 ```bash
-node cli.js ./path_to_domain
+node cli.js ./path_to_file_containing_domains
 ```
