@@ -14,7 +14,7 @@ Inside of `index.js` is an express web app that takes a port to listen on as an 
 
 Run it like this:
 ```bash
-node index.js 8080 # Where 8080 is the port to listen on`
+node index.js 8080 # Where 8080 is the port to listen on
 ```
 
 ## The cli app
